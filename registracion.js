@@ -1,16 +1,14 @@
 const form = document.getElementById('registerForm');
-const message = document.getElementById('message');
 
-// შეცვალე ეს შენი Render API მისამართით
 const API_URL = 'https://json-server-api-gye4.onrender.com/users';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const user = {
-    name: document.getElementById('name').value.trim(),
-    name: document.getElementById('last_name').value.trim(),
-    name: document.getElementById('nick_name').value.trim(),
+    first_name: document.getElementById('name').value.trim(),
+    last_name: document.getElementById('last_name').value.trim(),
+    nick_name: document.getElementById('nick_name').value.trim(),
     email: document.getElementById('email').value.trim(),
     password: document.getElementById('password').value.trim()
   };
@@ -25,12 +23,12 @@ form.addEventListener('submit', async (e) => {
     });
 
     if (res.ok) {
-      message.textContent = "რეგისტრაცია წარმატებულია! ✅";
-      form.reset();
+      // რეგისტრაცია წარმატებულია → მთავარ გვერდზე გადადით
+      window.location.href = "index.html"; // ან main.html თუ ეგ გინდა
     } else {
-      message.textContent = "დაფიქსირდა შეცდომა ❌";
+      alert("რეგისტრაცია ვერ განხორციელდა ❌");
     }
-  } catch (err) {
-    message.textContent = "სერვერთან კავშირის პრობლემა 😞";
+  } catch (error) {
+    alert("სერვერთან კავშირის შეცდომა 😞");
   }
 });
