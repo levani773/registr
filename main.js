@@ -68,3 +68,8 @@ window.addEventListener('scroll', () => {
         loadMoreContent();
     }
 });
+// გასვლა სისტემიდან
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  localStorage.removeItem('loggedInUser'); // წაშლა
+  window.location.href = 'login.html';     // უკან დაბრუნება
+});
