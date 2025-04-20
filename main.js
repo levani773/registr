@@ -95,3 +95,17 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
   localStorage.removeItem('loggedInUser'); // წაშლა
   window.location.href = 'login.html';     // უკან დაბრუნება
 });
+// იუზერი
+const userData = localStorage.getItem('loggedInUser');
+if (userData) {
+  const user = JSON.parse(userData);
+
+  if (user.role === 'admin') {
+    console.log('🔐 ეს არის ადმინი');
+    // აჩვენე admin panel ან სხვა ფუნქციები
+  } else if (user.role === 'user') {
+    console.log('👤 ეს არის რეგისტრირებული მომხმარებელი');
+  }
+} else {
+  console.log('🕵️ სტუმარია, role: guest');
+}
