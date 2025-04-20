@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (userData) {
     const user = JSON.parse(userData);
-    usernameDiv.textContent = `გამარჯობა, ${user.nick_name || user.name || 'მომხმარებელი'}!`;
+    usernameDiv.textContent = ` ${user.nick_name || user.name || 'მომხმარებელი'}!`;
     logoutBtn.style.display = 'inline-block';
     authLinks.style.display = 'none';
   } else {
