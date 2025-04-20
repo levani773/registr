@@ -9,6 +9,8 @@ form.addEventListener('submit', async (e) => {
 
   const user = {
     name: document.getElementById('name').value.trim(),
+    name: document.getElementById('last_name').value.trim(),
+    name: document.getElementById('nick_name').value.trim(),
     email: document.getElementById('email').value.trim(),
     password: document.getElementById('password').value.trim()
   };
