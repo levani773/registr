@@ -1,29 +1,36 @@
-const form = document.getElementById('loginForm');
+const form = document.getElementById('registerForm');
 const message = document.getElementById('message');
 
-// შენი Render API URL
+// შეცვალე ეს შენი Render API მისამართით
 const API_URL = 'https://json-server-api-gye4.onrender.com/users';
 
 form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+  const user = {
+    name: document.getElementById('name').value.trim(),
+    name: document.getElementById('last_name').value.trim(),
+    name: document.getElementById('nick_name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    password: document.getElementById('password').value.trim()
+  };
 
-    try {
-        // წავშლოთ ყველა მომხმარებელი და შევამოწმოთ, იპოვება თუ არა შესაბამისი
-        const res = await fetch(API_URL);
-        const users = await res.json();
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
 
-        // მოძებნე მომხმარებელი, რომლის ელ.ფოსტა და პაროლი ემთხვევა
-        const user = users.find(user => user.email === email && user.password === password);
-
-        if (user) {
-            message.textContent = "შესვლა წარმატებულია! ✅";
-        } else {
-            message.textContent = "ელ.ფოსტა ან პაროლი არასწორია ❌";
-        }
-    } catch (err) {
-        message.textContent = "სერვერთან კავშირის პრობლემა 😞";
+    if (res.ok) {
+      message.textContent = "რეგისტრაცია წარმატებულია! ✅";
+      form.reset();
+    } else {
+      message.textContent = "დაფიქსირდა შეცდომა ❌";
     }
+  } catch (err) {
+    message.textContent = "სერვერთან კავშირის პრობლემა 😞";
+  }
 });
