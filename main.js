@@ -19,10 +19,32 @@ fetch('style.json')  // 'colors.json' არის შენი JSON ფაი�
     document.documentElement.style.setProperty('--text-color', textColor);
   })
   .catch(error => console.error('Error loading JSON:', error));
-
-
-
 // -----------------------------------------------------------
+// იუზერის ინფო
+document.addEventListener('DOMContentLoaded', () => {
+  const userData = localStorage.getItem('loggedInUser');
+  const usernameDiv = document.getElementById('username');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const authLinks = document.getElementById('authLinks');
+
+  if (userData) {
+    const user = JSON.parse(userData);
+    usernameDiv.textContent = `გამარჯობა, ${user.nick_name || user.name || 'მომხმარებელი'}!`;
+    logoutBtn.style.display = 'inline-block';
+    authLinks.style.display = 'none';
+  } else {
+    usernameDiv.textContent = '';
+    logoutBtn.style.display = 'none';
+    authLinks.style.display = 'inline-block';
+  }
+
+  // გასვლის ღილაკი
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('loggedInUser');
+    window.location.reload(); // ან შეგიძლია გააკეთო redirect: window.location.href = 'login.html';
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", () => {
     let edite = document.getElementById('btn_edit+');
