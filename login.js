@@ -32,3 +32,5 @@ form.addEventListener('submit', async (e) => {
     console.error(err);
   }
 });
+// ვინახავთ იუზერს ლოცალსტორიჯში
+localStorage.setItem('loggedInUser', JSON.stringify(user));
