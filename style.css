@@ -1,36 +1,104 @@
-body {
-  font-family: sans-serif;
-  background: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+:root {
+    --menu-color: rgb(107, 224, 11);
+    --meno-color: rgb(104, 192, 2);
+    --bg_color: red;
+    --text_color: rgb(248, 248, 242);
+    
+  }
+  #loader {
+    text-align: center;
+    padding: 20px;
+    display: none;
+    color: gray;
+  }
+  .post {
+    
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+#up_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--menu-color);
+    height: 45px;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+  }
+  
+  li a {
+    display: block;
+    color: var(--text_color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: var(--meno-color);
+    border-radius: 15px;
 
-.form-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 300px;
+  }
+  li {
+    float: left;
+    position: relative; /* აუცილებელია რომ შიგნით არსებული აბსოლუტური ელემენტი მიბმული იყოს ამაზე */
+  }
+  
+  .del_menu {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  
+  #letter {
+    height: 40px;
+    width: 40px;
+    /* margin: 10px; */
+    color: aliceblue;
+    background-color: rgb(6, 61, 61);
+    border-radius: 50%;
+    
+  }
+  #del_menu {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(230, 10, 10);
+  }
+#input_men {
+    padding: 11px;
 }
+  #ggg {
+    display: flex;
+    padding-right: 10px;
+  }
 
-input {
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-}
-
-button {
-  padding: 0.5rem;
-  width: 100%;
-  background: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0056b3;
+#body_box {
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
 }
