@@ -23,7 +23,7 @@ form.addEventListener('submit', async (e) => {
       localStorage.setItem('loggedInUser', JSON.stringify(user));
 
       // გადამისამართება დეშბორდზე ან მთავარ გვერდზე
-      window.location.href = "dashboard.html"; // ან "index.html"
+      window.location.href = "index.html"; // ან "index.html"
     } else {
       message.textContent = "ელ.ფოსტა ან პაროლი არასწორია ❌";
     }
